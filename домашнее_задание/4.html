@@ -28,7 +28,13 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  const num = prompt("Ведите число");
+  const numbers = num.split('');
+  const hundred = +numbers[num.length-3];
+  const ten = +numbers[num.length-2];
+  const one = +numbers[num.length-1];
+
+alert(`В числе ${num} количество сотен: ${hundred}, десятков: ${ten}, единиц: ${one}`)
 </script>
 </body>
 </html>
