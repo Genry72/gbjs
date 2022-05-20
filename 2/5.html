@@ -32,7 +32,51 @@ Infinity делать не нужно, однако, в случае если б
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  console.log(mathOperation(5, 3, "+")); // 8
+  console.log(mathOperation(5, 3, ":)")); // NaN
+
+  /** Возвращает результат операции с числами
+   * на входд пинимает два числа и операцию.
+   * Доступные операции "+", "-", "*", "/"
+   */
+  function mathOperation(a, b, operation) {
+      switch (operation) {
+          case "+":
+              return sum(a, b);
+          case "-":
+              return difference(a, b);
+          case "*":
+              return multiplication(a, b);
+          case "/":
+              return dividing(a, b);
+          default:
+              return NaN;
+      }
+  };
+
+  /** Возващает сумму чисел */
+  function sum(a, b) {
+      return a + b;
+  };
+
+  /** Возвращает разность чисел */
+  function difference(a, b) {
+      if (a >= b) {
+          return a - b;
+      } else {
+          return b - a;
+      }
+  };
+
+  /** Возвращает прроизведение чисер */
+  function multiplication(a, b) {
+      return a * b;
+  };
+
+  /** Возвращает результат деления */
+  function dividing(a, b) {
+      return a / b;
+  };
 </script>
 </body>
 </html>

@@ -21,7 +21,28 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+const a = prompt("Введите первое число");
+const b = prompt("Введите второе число");
+const result = magicFun(a, b);
+
+if (result) {
+    alert(result);
+}
+
+function magicFun(a, b) {
+    a = +a;
+    b = +b;
+    if (a > 0 && b > 0) {
+        return a - b;
+    }
+    if (a < 0 && b < 0) {
+        return a + b;
+    }
+    if ((a > 0 && b < 0) || (a < 0 && b > 0)) {
+        return a + b;
+    }
+    return;
+};
 </script>
 </body>
 </html>
