@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <style>
+    i {
+      font-size: 50px;
+    }
+
+    .golden {
+      color: gold;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+
+  <div class="stars_container">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+  </div>
+
+  <script>
+    "use strict";
+
+    /*
+    1. При наведении на любую из звезд, данной звезде должен ставиться класс
+    golden, также такой класс должен ставиться всем звездам до нее слева.
+    */
+    const starsCont = document.querySelector('.stars_container')
+    starsCont.addEventListener('mouseover', elem => {
+      if (!elem.target.classList.contains('fas')) {
+        return;
+      }
+      let star = elem.target;
+      do {
+        star.classList.add('golden');
+        star = star.previousElementSibling;
+      } while (star);
+    });
+
+    /*
+    2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
+    задания должны быть удалены.
+     */
+
+    starsCont.addEventListener('mouseout', elem => {
+      if (!elem.target.classList.contains('fas')) {
+        return;
+      }
+      let star = elem.target;
+      do {
+        star.classList.remove('golden');
+        star = star.previousElementSibling;
+      } while (star);
+    });
+
+
+    /*
+    3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
+    звезды (временно могут становиться черными). Почему так? Напишите словами.
+    Можем ли мы это исправить? Если да, то предложите решение.
+
+    Между элментами - пробел, при попадании на него снимается фокус со свезд.
+    https://ru.stackoverflow.com/questions/609992/%D0%9E%D1%82%D1%81%D1%82%\
+    D1%83%D0%BF%D1%8B-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%B8%D0%BD%D0%BB%D0%B\
+    0%D0%B9%D0%BD%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8-%D1%8D%D0%BB%D0%B5%D0%BC%D0%\
+    B5%D0%BD%D1%82%D0%B0%D0%BC%D0%B8
+    */
+    starsCont.style.display = 'flex';
+  </script>
+</body>
+
+</html>
